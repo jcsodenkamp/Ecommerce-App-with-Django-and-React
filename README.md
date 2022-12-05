@@ -13,5 +13,16 @@
 - Admin user management
 - Admin Order details page
 - Mark orders as delivered option
+
+# Models
+- User
+- Products
+- Reviews
+- Orders
+- OrderItems 
+- Shipping Address
+
+
+# API
 - Social Login (API 1)
 - PayPal / credit card integration (API 2)
