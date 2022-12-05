@@ -1,18 +1,17 @@
 # Ecommerce-App-with-Django-and-React
 
 # Features
-- Full featured shopping cart
-- Product reviews and ratings
-- Top products carousel
-- Product pagination
-- Product search feature
-- Full featured shopping cart
-- User profile with orders
-- Checkout process (shipping, payment method, etc)
-- Admin product management
-- Admin user management
-- Admin Order details page
-- Mark orders as delivered option
+- Full featured shopping cart (must have)
+- Product reviews and ratings (nice to have)
+- Top products carousel (nice to have)
+- Product pagination(nice to have)
+- Product search feature (must have)
+- User profile with orders (must have)
+- Checkout process (shipping, payment method, etc) (must have)
+- Admin product management (must have)
+- Admin user management (must have)
+- Admin Order details page (must have)
+- Mark orders as delivered option (must have)
 
 # Models
 - User
