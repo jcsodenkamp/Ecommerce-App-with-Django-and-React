@@ -23,5 +23,4 @@
 
 
 # API
-- Social Login (API 1)
 - PayPal / credit card integration (API 2)
