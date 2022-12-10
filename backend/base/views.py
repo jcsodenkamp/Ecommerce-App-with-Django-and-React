@@ -4,7 +4,6 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 
 from .models import Product
-from .products import products
 from .serializer import ProductSerializer
 
 # Create your views here.
@@ -46,4 +45,5 @@ def getProducts(request):
 def getProduct(request, pk):
     product = Product.objects.get(_id=pk)
     serializer = ProductSerializer(product, many=False)
+    print('Test')
     return Response(serializer.data)
