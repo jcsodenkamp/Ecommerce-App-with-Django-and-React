@@ -60,9 +60,9 @@ function ProductScreen() {
                                 />
                             </ListGroup.Item>
 
-                            <ListGroup.Item>
+                            {/* <ListGroup.Item>
                                 Price: ${product.price}
-                            </ListGroup.Item>
+                            </ListGroup.Item> */}
 
                             <ListGroup.Item>
                                 <p class="fw-bold">
@@ -96,7 +96,7 @@ function ProductScreen() {
 
                                 {product.countInStock > 0 && (
                                     <ListGroupItem>
-                                        <Row>
+                                        {/* <Row>
                                             <Col>Qty</Col>
                                             <Col xs="auto" className="my-1">
                                                 <Form.Select
@@ -116,7 +116,7 @@ function ProductScreen() {
                                                     ))}
                                                 </Form.Select>
                                             </Col>
-                                        </Row>
+                                        </Row> */}
                                     </ListGroupItem>
                                 )}
 

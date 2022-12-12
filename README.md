@@ -1,4 +1,4 @@
-# Ecommerce-App-with-Django-and-React
+# Ecommerce App
 
 # Features
 - Full featured shopping cart (must have)
