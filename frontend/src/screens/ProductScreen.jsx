@@ -29,7 +29,7 @@ function ProductScreen() {
     }, [dispatch, id]);
 
     const addToCartHandler = () => {
-        navigate(`/cart/${id}`, {state: qty});
+        navigate(`/cart/${id}`, { state: qty });
     };
     return (
         <div>
@@ -94,9 +94,11 @@ function ProductScreen() {
                                     </Row>
                                 </ListGroupItem>
 
-                                {product.countInStock > 0 && (
+                                {product.countInStock > 0}
+
+                                {/* {product.countInStock > 0 && (
                                     <ListGroupItem>
-                                        {/* <Row>
+                                        <Row>
                                             <Col>Qty</Col>
                                             <Col xs="auto" className="my-1">
                                                 <Form.Select
@@ -116,9 +118,9 @@ function ProductScreen() {
                                                     ))}
                                                 </Form.Select>
                                             </Col>
-                                        </Row> */}
+                                        </Row>
                                     </ListGroupItem>
-                                )}
+                                )} */}
 
                                 <Button
                                     onClick={addToCartHandler}
