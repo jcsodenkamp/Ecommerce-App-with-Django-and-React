@@ -46,7 +46,7 @@ function LoginScreen() {
                     </Form.Control>
                 </Form.Group>
 
-                <Form.Group controlId="email">
+                <Form.Group controlId="password">
                     <Form.Label>Password</Form.Label>
                     <Form.Control 
                         type="password" 
@@ -58,8 +58,8 @@ function LoginScreen() {
                 <Button type="submit" variant="primary">Sign In</Button>
             </Form>
 
-            <Row>
-                <Col className="py-3">
+            <Row className="py-3">
+                <Col >
                     New Customer? <Link 
                         to={redirect ? `/register?redirect=${redirect}`: "/register"}>
                             Register

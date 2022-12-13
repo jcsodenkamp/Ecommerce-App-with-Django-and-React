@@ -16,7 +16,7 @@ function Header() {
     }
     return (
         <header>
-            <Navbar bg="danger" variant="light" expand="lg" collapseOnSelect>
+            <Navbar bg="warning" variant="light" expand="lg" collapseOnSelect>
                 <Container fluid>
                     <LinkContainer to="/">
                         <Navbar.Brand >BRAINSTORM BRAND IDEAS</Navbar.Brand>
