@@ -44,7 +44,7 @@ function CartScreen() {
         <div>
             <h1>Shopping Cart</h1>
 
-            <Row>
+            <Row id="cart-row">
                 <Col md={8}>
                     {cartItems.length === 0 ? (
                         <Message variant="info">
@@ -131,7 +131,7 @@ function CartScreen() {
                                         (acc, item) => acc + item.qty,
                                         0
                                     )}
-                                    ) itmes
+                                    ) items
                                 </h4>
                                 $
                                 {cartItems
@@ -151,8 +151,13 @@ function CartScreen() {
                                 >
                                     Process to Checkout
                                 </Button>
+                                
+                            </ListGroup.Item>
+                            <ListGroup.Item>
+                            <a href="/">Continue Shopping</a>
                             </ListGroup.Item>
                         </ListGroup>
+                        
                     </Card>
                 </Col>
             </Row>
