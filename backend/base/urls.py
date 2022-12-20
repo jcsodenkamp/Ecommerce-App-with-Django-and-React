@@ -10,8 +10,7 @@ urlpatterns = [
     path('users/', views.getUsers, name='users'),
     path('products/', views.getProducts, name='products'),
     path('products/<str:pk>', views.getProduct, name='product'),
-    # re_path('.*', views.index),
+    # re_path('.*', views.index, name='index'),
 ]
 
 
-# pdateUserProfile

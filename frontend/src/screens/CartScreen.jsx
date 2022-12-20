@@ -22,6 +22,12 @@ function CartScreen() {
     // console.log('qty:', qty);
 
     const dispatch = useDispatch();
+    
+    const userLogin = useSelector((state) => state.userLogin) 
+    const { userInfo } = userLogin
+
+
+
     const cart = useSelector((state) => state.cart);
     const { cartItems } = cart;
     // console.log('cartItems:', cartItems)
@@ -37,7 +43,13 @@ function CartScreen() {
     };
 
     const checkoutHandler = () => {
-        navigate("/login?redirect=shipping");
+        if (!userInfo) {
+            navigate('/login')
+        } else {
+            navigate('/shipping')
+        }
+        // navigate("/login?redirect=shipping");
+        
     };
 
     return (
@@ -153,9 +165,13 @@ function CartScreen() {
                                 </Button>
                                 
                             </ListGroup.Item>
+
+                            {cartItems.length === 0 ? (
+                                <a></a>
+                            ) : (
                             <ListGroup.Item>
-                            <a href="/">Continue Shopping</a>
-                            </ListGroup.Item>
+                                <a href="/">Continue Shopping</a>
+                            </ListGroup.Item>)}
                         </ListGroup>
                         
                     </Card>

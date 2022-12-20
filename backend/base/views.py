@@ -23,7 +23,7 @@ class MyTokenObtainPairSerializer(TokenObtainPairSerializer):
 class MyTokenObtainPairView(TokenObtainPairView):
     serializer_class = MyTokenObtainPairSerializer
 
-
+@api_view(['GET'])
 def index(request):
     file = open('static/index.html').read()
     resp = HttpResponse(file)

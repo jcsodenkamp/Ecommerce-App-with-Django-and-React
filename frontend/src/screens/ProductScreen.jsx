@@ -29,7 +29,7 @@ function ProductScreen() {
     }, [dispatch, id]);
 
     const addToCartHandler = () => {
-        navigate(`/cart/${id}`, { state: qty });
+        navigate(`/cart/${id}/`, { state: qty });
     };
     return (
         <div>
@@ -94,9 +94,9 @@ function ProductScreen() {
                                     </Row>
                                 </ListGroupItem>
 
-                                {product.countInStock > 0}
+                                {/* {product.countInStock > 0} */}
 
-                                {/* {product.countInStock > 0 && (
+                                {product.countInStock > 0 && (
                                     <ListGroupItem>
                                         <Row>
                                             <Col>Qty</Col>
@@ -108,7 +108,7 @@ function ProductScreen() {
                                                     onChange={(e) =>
                                                         setQty(e.target.value)}
                                                 >
-                                                    {[...Array(product.countInStock).keys(),].map((x) => (
+                                                    {[...Array(product.countInStock).keys()].map((x) => (
                                                         <option
                                                             key={x + 1}
                                                             value={x + 1}
@@ -120,7 +120,7 @@ function ProductScreen() {
                                             </Col>
                                         </Row>
                                     </ListGroupItem>
-                                )} */}
+                                )}
 
                                 <Button
                                     onClick={addToCartHandler}
