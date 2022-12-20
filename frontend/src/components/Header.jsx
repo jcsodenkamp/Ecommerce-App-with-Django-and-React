@@ -16,7 +16,7 @@ function Header() {
     };
     return (
         <header>
-            <Navbar className="ms-auto" bg="warning" variant="light" expand="lg" collapseOnSelect>
+            <Navbar bg="warning" variant="light" expand="lg" collapseOnSelect>
                 <Container fluid>
                     <LinkContainer to="/">
                         <Navbar.Brand>Need Brand</Navbar.Brand>
@@ -25,24 +25,27 @@ function Header() {
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll" className="right-aligned">
                         <Nav className="mr-auto">
+                            <LinkContainer to='/'>
+                                <Nav.Link>
+                                    <i className="fa-solid fa-house"></i>Home
+                                </Nav.Link>
+                            </LinkContainer>
                             <LinkContainer to="/cart">
                                 <Nav.Link>
                                     <i className="fas fa-shopping-cart"></i>cart
                                 </Nav.Link>
                             </LinkContainer>
+                            
 
                             {userInfo ? (
-                                <NavDropdown
-                                    title={userInfo.name}
-                                    id={userInfo.email}
-                                >
+                                <NavDropdown title={userInfo.name} id={userInfo.email}>
                                     <LinkContainer to="/profile">
                                         <NavDropdown.Item>
-                                            Profile
+                                            <i className="fa-regular fa-address-card"></i>Profile
                                         </NavDropdown.Item>
                                     </LinkContainer>
                                     <NavDropdown.Item onClick={logoutHandler}>
-                                        Logout
+                                    <i className="fas fa-user"></i>Logout
                                     </NavDropdown.Item>
                                 </NavDropdown>
                             ) : (

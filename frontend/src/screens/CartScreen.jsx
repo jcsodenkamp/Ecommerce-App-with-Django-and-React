@@ -54,7 +54,7 @@ function CartScreen() {
 
     return (
         <div>
-            <h1>Shopping Cart</h1>
+            <h1 className="text-center">Shopping Cart</h1>
 
             <Row id="cart-row">
                 <Col md={8}>
@@ -154,10 +154,10 @@ function CartScreen() {
                                     )
                                     .toFixed(2)}
                             </ListGroup.Item>
-                            <ListGroup.Item>
+                            <ListGroup.Item className="d-grid gap-2">
                                 <Button
+                                    variant="warning"
                                     type="button"
-                                    className="btn-block"
                                     disabled={cartItems.length === 0}
                                     onClick={checkoutHandler}
                                 >

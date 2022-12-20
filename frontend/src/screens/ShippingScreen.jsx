@@ -74,7 +74,7 @@ function ShippingScreen() {
                     ></Form.Control>
                 </Form.Group>
 
-                <Button type="submit" variant="primary">
+                <Button type="submit" variant="warning">
                   Continue
                 </Button>
             </Form>

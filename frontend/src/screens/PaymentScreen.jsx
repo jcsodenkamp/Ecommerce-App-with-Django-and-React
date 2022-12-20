@@ -36,13 +36,13 @@ function PaymentScreen() {
                         label="PayPay or Credit Card" 
                         id="paypal" 
                         name="paymentMethod"
-                        variant='light' 
+                        variant='warning' 
                         checked 
                         onChange={(e) => setPaymentMethod(e.target.value) }>
                     </Form.Check>
                 </Col>
             </Form.Group>
-            <Button type="submit" variant="primary">
+            <Button type="submit" variant="warning">
                 Continue
             </Button>
 
