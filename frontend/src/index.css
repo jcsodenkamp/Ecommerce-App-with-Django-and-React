@@ -23,3 +23,7 @@ main {
 .rating span {
   margin: 0.1rem;
 }
+
+.right-aligned {
+  justify-content: flex-end;
+}

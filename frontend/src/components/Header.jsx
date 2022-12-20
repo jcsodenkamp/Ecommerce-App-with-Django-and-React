@@ -16,14 +16,14 @@ function Header() {
     };
     return (
         <header>
-            <Navbar class='navbar' variant="light" expand="lg" collapseOnSelect>
+            <Navbar className="ms-auto" bg="warning" variant="light" expand="lg" collapseOnSelect>
                 <Container fluid>
                     <LinkContainer to="/">
-                        <Navbar.Brand>BRAINSTORM BRAND IDEAS</Navbar.Brand>
+                        <Navbar.Brand>Need Brand</Navbar.Brand>
                     </LinkContainer>
 
                     <Navbar.Toggle aria-controls="navbarScroll" />
-                    <Navbar.Collapse id="navbarScroll">
+                    <Navbar.Collapse id="navbarScroll" className="right-aligned">
                         <Nav className="mr-auto">
                             <LinkContainer to="/cart">
                                 <Nav.Link>
