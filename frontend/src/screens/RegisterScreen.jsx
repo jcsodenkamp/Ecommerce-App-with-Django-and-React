@@ -40,7 +40,7 @@ function RegisterScreen() {
     };
     return (
         <FormContainer>
-            <h1>Register</h1>
+            <h1 className="text-center">Register</h1>
             {message && <Message variant="danger">{message}</Message>}
             {error && <Message variant="danger">{error}</Message>}
             {loading && <Loader />}
@@ -88,7 +88,7 @@ function RegisterScreen() {
                         onChange={(e) => setConfirmPassword(e.target.value)}
                     ></Form.Control>
                 </Form.Group>
-                <Button type="submit" variant="primary">
+                <Button type="submit" variant="warning">
                     Register
                 </Button>
             </Form>

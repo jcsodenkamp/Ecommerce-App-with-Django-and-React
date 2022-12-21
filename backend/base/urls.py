@@ -10,7 +10,9 @@ urlpatterns = [
     path('users/', views.getUsers, name='users'),
     path('products/', views.getProducts, name='products'),
     path('products/<str:pk>', views.getProduct, name='product'),
-    # re_path('.*', views.index, name='index'),
+    path('orders/add/', views.addOrderItems, name='orders-add'),
+    path('orders/<str:pk>/', views.getOrderById, name='user-order'),
+    re_path('.*', views.index, name='index'),
 ]
 
 

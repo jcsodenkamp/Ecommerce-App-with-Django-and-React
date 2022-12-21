@@ -12,6 +12,7 @@ import {
 } from "react-bootstrap";
 import Message from "../components/Message";
 import { addToCart, removeFromCart } from "../actions/cartActions";
+import CheckoutSteps from "../components/CheckoutSteps";
 
 function CartScreen() {
     const navigate = useNavigate();
@@ -54,6 +55,7 @@ function CartScreen() {
 
     return (
         <div>
+            <CheckoutSteps step1/>
             <h1 className="text-center">Shopping Cart</h1>
 
             <Row id="cart-row">
@@ -161,7 +163,7 @@ function CartScreen() {
                                     disabled={cartItems.length === 0}
                                     onClick={checkoutHandler}
                                 >
-                                    Process to Checkout
+                                    Proceed to Checkout
                                 </Button>
                                 
                             </ListGroup.Item>

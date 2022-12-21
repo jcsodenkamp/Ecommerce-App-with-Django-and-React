@@ -19,7 +19,7 @@ function Header() {
             <Navbar bg="warning" variant="light" expand="lg" collapseOnSelect>
                 <Container fluid>
                     <LinkContainer to="/">
-                        <Navbar.Brand>Need Brand</Navbar.Brand>
+                        <Navbar.Brand>Valdivia</Navbar.Brand>
                     </LinkContainer>
 
                     <Navbar.Toggle aria-controls="navbarScroll" />

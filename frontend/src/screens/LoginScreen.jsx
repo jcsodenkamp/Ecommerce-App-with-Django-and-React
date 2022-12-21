@@ -34,7 +34,7 @@ function LoginScreen() {
 
     return (
         <FormContainer>
-            <h1>Sign In</h1>
+            <h1 className="text-center">Sign In</h1>
             {error && <Message variant="danger">{error}</Message>}
             {loading && <Loader />}
             <Form onSubmit={submitHandler}>
@@ -57,7 +57,7 @@ function LoginScreen() {
                         onChange={(e) => setPassword(e.target.value)}
                     ></Form.Control>
                 </Form.Group>
-                <Button type="submit" variant="primary">
+                <Button type="submit" variant="warning">
                     Sign In
                 </Button>
             </Form>
