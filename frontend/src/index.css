@@ -27,3 +27,7 @@ main {
 .right-aligned {
   justify-content: flex-end;
 }
+
+.Link {
+  text-decoration: none
+}

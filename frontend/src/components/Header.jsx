@@ -19,7 +19,7 @@ function Header() {
             <Navbar bg="warning" variant="light" expand="lg" collapseOnSelect>
                 <Container fluid>
                     <LinkContainer to="/">
-                        <Navbar.Brand>Valdivia</Navbar.Brand>
+                        <Navbar.Brand>Valdivian</Navbar.Brand>
                     </LinkContainer>
 
                     <Navbar.Toggle aria-controls="navbarScroll" />
@@ -36,7 +36,6 @@ function Header() {
                                 </Nav.Link>
                             </LinkContainer>
                             
-
                             {userInfo ? (
                                 <NavDropdown title={userInfo.name} id={userInfo.email}>
                                     <LinkContainer to="/profile">

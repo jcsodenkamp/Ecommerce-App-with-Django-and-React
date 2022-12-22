@@ -36,6 +36,7 @@ function App() {
                 </Container>
             </main>
             <Footer />
+            
         </Router>
     );
 }

@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link, useNavigate, useLocation, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import {
@@ -9,6 +9,9 @@ import {
     Form,
     Button,
     Card,
+    Alert,
+    OverlayTrigger,
+    Tooltip,
 } from "react-bootstrap";
 import Message from "../components/Message";
 import { addToCart, removeFromCart } from "../actions/cartActions";
@@ -23,11 +26,9 @@ function CartScreen() {
     // console.log('qty:', qty);
 
     const dispatch = useDispatch();
-    
-    const userLogin = useSelector((state) => state.userLogin) 
-    const { userInfo } = userLogin
 
-
+    const userLogin = useSelector((state) => state.userLogin);
+    const { userInfo } = userLogin;
 
     const cart = useSelector((state) => state.cart);
     const { cartItems } = cart;
@@ -45,17 +46,17 @@ function CartScreen() {
 
     const checkoutHandler = () => {
         if (!userInfo) {
-            navigate('/login')
+            navigate("/login");
         } else {
-            navigate('/shipping')
+            navigate("/shipping");
         }
         // navigate("/login?redirect=shipping");
-        
     };
 
     return (
         <div>
-            <CheckoutSteps step1/>
+            <CheckoutSteps step1 />
+
             <h1 className="text-center">Shopping Cart</h1>
 
             <Row id="cart-row">
@@ -78,7 +79,7 @@ function CartScreen() {
                                             />
                                         </Col>
                                         <Col md={3}>
-                                            <Link
+                                            <Link style={{textDecoration:"none"}}
                                                 to={`/product/${item.product}`}
                                             >
                                                 {item.name}
@@ -125,7 +126,7 @@ function CartScreen() {
                                                     )
                                                 }
                                             >
-                                                <i className="fas fa-trash"></i>
+                                                <i className="fas fa-trash"></i>Remove
                                             </Button>
                                         </Col>
                                     </Row>
@@ -156,26 +157,36 @@ function CartScreen() {
                                     )
                                     .toFixed(2)}
                             </ListGroup.Item>
-                            <ListGroup.Item className="d-grid gap-2">
-                                <Button
-                                    variant="warning"
-                                    type="button"
-                                    disabled={cartItems.length === 0}
-                                    onClick={checkoutHandler}
+                            <ListGroup.Item>
+                                <OverlayTrigger
+                                    overlay={
+                                        <Tooltip id="tooltip-disabled">
+                                            Free shipping for cart totals over
+                                            $100
+                                        </Tooltip>
+                                    }
                                 >
-                                    Proceed to Checkout
-                                </Button>
-                                
+                                    <span className="d-inline-block">
+                                        <Button
+                                            variant="warning"
+                                            type="button"
+                                            disabled={cartItems.length === 0}
+                                            onClick={checkoutHandler}
+                                        >
+                                            Proceed to Checkout
+                                        </Button>
+                                    </span>
+                                </OverlayTrigger>
                             </ListGroup.Item>
 
                             {cartItems.length === 0 ? (
                                 <a></a>
                             ) : (
-                            <ListGroup.Item>
-                                <a href="/">Continue Shopping</a>
-                            </ListGroup.Item>)}
+                                <ListGroup.Item>
+                                    <a href="/" style={{textDecoration:"none"}}>Continue Shopping</a>
+                                </ListGroup.Item>
+                            )}
                         </ListGroup>
-                        
                     </Card>
                 </Col>
             </Row>

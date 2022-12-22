@@ -53,7 +53,7 @@ export default function PlaceOrderScreen() {
                         <ListGroup.Item>
                             <h2>Shipping</h2>
                             <p>
-                                <strong>Shipping: </strong>
+                                <strong className="fw-bold">Shipping: </strong>
                                 {cart.shippingAddress.address}{" "}
                                 {cart.shippingAddress.city}{" "}
                                 {cart.shippingAddress.postalCode}{" "}
@@ -64,7 +64,7 @@ export default function PlaceOrderScreen() {
                         <ListGroup.Item>
                             <h2>Payment Method</h2>
                             <p>
-                                <strong>Payment Method: </strong>
+                                <strong className="fw-bold">Payment Method: </strong>
                                 {cart.paymentMethod}
                             </p>
                         </ListGroup.Item>
@@ -89,7 +89,7 @@ export default function PlaceOrderScreen() {
                                                     />
                                                 </Col>
                                                 <Col>
-                                                    <Link
+                                                    <Link style={{textDecoration:"none"}}
                                                         to={`/product/${item.product}`}
                                                     >
                                                         {item.name}
