@@ -59,12 +59,13 @@ export default function OrderScreen() {
         <Message variant="danger" >{error}</Message>
     ) : (
         <div>
-            <h1>Order: {order._id}</h1>
-            <Row>
+            
+            <Row >
                 <Col md={8}>
-                    <ListGroup variant="flush">
-                        <ListGroup.Item>
-                            <h2>Shipping</h2>
+                    <ListGroup variant="flush" style={{border:"solid 1px"}}>
+                        <ListGroup.Item >
+                            <h2 className="text-center">Shipping</h2>
+                            <p><strong className="fw-bold">Order: </strong>{order._id}</p>
                             <p><strong className="fw-bold">Name: </strong>{order.user.name} </p>
                             <p><strong className="fw-bold">Email: </strong><a href={`mailto:${order.user.email}`}style={{textDecoration:"none"}}>{order.user.email}</a></p>
                             <p>
@@ -82,7 +83,7 @@ export default function OrderScreen() {
                         </ListGroup.Item>
 
                         <ListGroup.Item>
-                            <h2>Payment Method</h2>
+                            <h2 className="text-center">Payment Method</h2>
                             <p>
                                 <strong>Payment Method: </strong>
                                 {order.paymentMethod}
@@ -95,7 +96,7 @@ export default function OrderScreen() {
                         </ListGroup.Item>
 
                         <ListGroup.Item>
-                            <h2>Order Item</h2>
+                            <h2 className="text-center">Order Item</h2>
                             {order.orderItems.length === 0 ? (
                                 <Message variant="info">
                                     Order is empty
@@ -137,7 +138,7 @@ export default function OrderScreen() {
                 </Col>
 
                 <Col md={4}>
-                    <Card>
+                    <Card style={{border:"solid 1px"}}>
                         <ListGroup variant="flush">
                             <ListGroup.Item>
                                 <h2>Order Summary</h2>

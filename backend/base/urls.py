@@ -11,6 +11,9 @@ urlpatterns = [
     path('products/', views.getProducts, name='products'),
     path('products/<str:pk>', views.getProduct, name='product'),
     path('orders/add/', views.addOrderItems, name='orders-add'),
+
+    path('orders/myorders/', views.getMyOrders, name='myorders'),
+
     path('orders/<str:pk>/', views.getOrderById, name='user-order'),
     path('orders/<str:pk>/pay/', views.updateOrderToPaid, name='pay'),
     re_path('.*', views.index, name='index'),

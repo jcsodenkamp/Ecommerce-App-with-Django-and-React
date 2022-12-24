@@ -150,7 +150,7 @@ export default function PlaceOrderScreen() {
                                 <Button
                                     type="button"
                                     disabled={cart.cartItems === 0}
-                                    variant="warning"
+                                    variant="outline-warning"
                                     onClick={placeOrder}
                                 >
                                     Place Order

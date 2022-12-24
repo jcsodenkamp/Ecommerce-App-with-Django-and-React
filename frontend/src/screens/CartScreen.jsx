@@ -166,9 +166,9 @@ function CartScreen() {
                                         </Tooltip>
                                     }
                                 >
-                                    <span className="d-inline-block">
+                                    <span className="d-grid gap-2">
                                         <Button
-                                            variant="warning"
+                                            variant="outline-warning"
                                             type="button"
                                             disabled={cartItems.length === 0}
                                             onClick={checkoutHandler}

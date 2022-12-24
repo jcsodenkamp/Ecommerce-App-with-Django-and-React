@@ -42,7 +42,7 @@ function PaymentScreen() {
                     </Form.Check>
                 </Col>
             </Form.Group>
-            <Button type="submit" variant="warning">Continue</Button>
+            <Button type="submit" variant="outline-warning">Continue</Button>
         </Form>
       
     </FormContainer>

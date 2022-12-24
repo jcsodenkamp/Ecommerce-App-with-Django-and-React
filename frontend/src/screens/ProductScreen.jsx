@@ -121,17 +121,17 @@ function ProductScreen() {
                                         </Row>
                                     </ListGroupItem>
                                 )}
-
+                                <ListGroup.Item className="d-grid gap-2">
                                 <Button
                                     onClick={addToCartHandler}
                                     variant="outline-warning"
                                     disabled={product.countInStock === 0}
-                                    type="button"
-                                >
+                                    type="button">
                                     Add to Cart
                                 </Button>
-                                <ListGroup></ListGroup>
-                            </ListGroup>
+                                </ListGroup.Item>
+
+                                </ListGroup>
                         </Card>
                     </Col>
                 </Row>
