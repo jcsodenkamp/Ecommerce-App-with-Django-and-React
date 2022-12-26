@@ -119,14 +119,14 @@ function CartScreen() {
                                         <Col md={1}>
                                             <Button
                                                 type="button"
-                                                variant="light"
+                                                variant="outline-warning"
                                                 onClick={() =>
                                                     removeFromCartHandler(
                                                         item.product
                                                     )
                                                 }
                                             >
-                                                <i className="fas fa-trash"></i>Remove
+                                                <i className="fas fa-trash"></i>
                                             </Button>
                                         </Col>
                                     </Row>

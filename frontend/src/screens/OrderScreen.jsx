@@ -6,12 +6,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { PayPalButton } from "react-paypal-button-v2"
 import Message from "../components/Message";
 import Loader from "../components/Loader";
-import { getOrderDetails, payOrder } from "../actions/orderActions";
-import { ORDER_PAY_RESET } from "../constants/orderConstants";
+import { getOrderDetails, payOrder, deliverOrder } from "../actions/orderActions";
+import { ORDER_PAY_RESET, ORDER_DELIVER_RESET } from "../constants/orderConstants";
 
 
 export default function OrderScreen() {
     const { id } = useParams();
+    const navigate = useNavigate()
     const dispatch = useDispatch();
     const [sdkReady, setSdkReady] = useState(false);
 
@@ -20,6 +21,12 @@ export default function OrderScreen() {
 
     const orderPay = useSelector(state => state.orderPay)
     const {loading: loadingPay, success: successPay} = orderPay
+
+    const orderDeliver = useSelector(state => state.orderDeliver)
+    const { loading: loadingDeliver, success: successDeliver } = orderDeliver
+
+    const userLogin = useSelector(state => state.userLogin)
+    const { userInfo } = userLogin
 
     if(!loading && !error) {
         order.itemsPrice = (order.orderItems.reduce((acc, item) => acc + item.price * item.qty, 0)).toFixed(2);
@@ -37,8 +44,13 @@ export default function OrderScreen() {
         document.body.appendChild(script)
     }
     useEffect(() => {
-        if(!order || successPay || order._id !== Number(id)) {
+        if(!userInfo) {
+            navigate("/login")
+        }
+
+        if(!order || successPay || order._id !== Number(id) || successDeliver) {
             dispatch({type: ORDER_PAY_RESET})
+            dispatch({type: ORDER_DELIVER_RESET})
             dispatch(getOrderDetails(id))
         }else if(!order.isPaid) {
             if(!window.paypal) {
@@ -47,10 +59,14 @@ export default function OrderScreen() {
                 setSdkReady(true)
             }
         }
-    }, [dispatch, order, id, successPay])
+    }, [dispatch, order, id, successPay, successDeliver])
 
     const successPaymentHandler = (paymentResult) => {
         dispatch(payOrder(id, paymentResult))
+    }
+
+    const deliverHandler = () => {
+        dispatch(deliverOrder(order))
     }
 
     return loading ? (
@@ -76,7 +92,7 @@ export default function OrderScreen() {
                                 {order.ShippingAddress.country}
                             </p>
                             {order.isDelivered ? (
-                                <Message variant="success">Delivered on {order.deliveredAt}</Message>
+                                <Message variant="success">Delivered on {order.deliveredAt.substring(0,10)}</Message>
                             ):(
                                 <Message variant="info">Not Delivered{order.delivereddAt}</Message>
                             )}
@@ -89,7 +105,7 @@ export default function OrderScreen() {
                                 {order.paymentMethod}
                             </p>
                             {order.isPaid ? (
-                                <Message variant="success">Paid on {order.paidAt}</Message>
+                                <Message variant="success">Paid on {order.paidAt.substring(0,10)}</Message>
                             ):(
                                 <Message variant="info">Not Paid{order.paidAt}</Message>
                             )}
@@ -180,6 +196,18 @@ export default function OrderScreen() {
                                             onSuccess={successPaymentHandler}
                                         />
                                     )}
+                                </ListGroup.Item>
+                            )}
+                            {loadingDeliver && <Loader />}
+                            {userInfo && userInfo.isAdmin && order.isPaid && !order.isDelivered && (
+                                <ListGroup.Item>
+                                    <Button 
+                                        type="button"
+                                        variant="outline-warning"
+                                        className="btn btn-block"
+                                        onClick={deliverHandler}>
+                                        Mark as Delivered
+                                    </Button>
                                 </ListGroup.Item>
                             )}
 
