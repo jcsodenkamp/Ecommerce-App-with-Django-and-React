@@ -2,6 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Navbar, Nav, Container, Row, NavDropdown } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import SearchBox from "./SearchBox";
 import { logout } from "../actions/userActions";
 
 function Header() {
@@ -21,7 +22,7 @@ function Header() {
                     <LinkContainer to="/">
                         <Navbar.Brand>Valdivian</Navbar.Brand>
                     </LinkContainer>
-
+                    {/* <SearchBox /> */}
                     <Navbar.Toggle aria-controls="navbarScroll" />
                     <Navbar.Collapse id="navbarScroll" className="right-aligned">
                         <Nav className="mr-auto">
@@ -71,6 +72,7 @@ function Header() {
                                 </NavDropdown>
                             )}
                         </Nav>
+                        
                     </Navbar.Collapse>
                 </Container>
             </Navbar>

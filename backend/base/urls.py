@@ -20,6 +20,7 @@ urlpatterns = [
     path('products/<str:pk>/', views.getProduct, name='product'),
     path('products/update/<str:pk>/', views.updateProduct, name='product-update'),
     path('products/delete/<str:pk>/', views.deleteProduct, name='product-delete'),
+    path('products/<str:pk>/reviews/', views.createProductReview, name='create-review'),
     
     # orders
     path('orders/add/', views.addOrderItems, name='orders-add'),
@@ -28,6 +29,7 @@ urlpatterns = [
     path('orders/<str:pk>/deliver/', views.updateOrderToDelivered, name='order-delivered'),
     path('orders/<str:pk>/', views.getOrderById, name='user-order'),
     path('orders/<str:pk>/pay/', views.updateOrderToPaid, name='pay'),
+
     # re_path('.*', views.index, name='index'),
 ]
 

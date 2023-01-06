@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { Row, Col } from "react-bootstrap";
 import Products from "../components/Product";
@@ -11,9 +12,11 @@ function HomeScreen() {
     const productList = useSelector((state) => state.productList);
     const { error, loading, products } = productList;
 
+    const keyword = useNavigate()
+
     useEffect(() => {
         dispatch(listProducts());
-    }, []);
+    }, [dispatch, keyword]);
 
     return (
         <div>
